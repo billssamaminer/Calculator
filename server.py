@@ -10,7 +10,7 @@ def obtener_precio_usdt_ves():
     payload = {
         "proMerchantAds": False,
         "page": 1,
-        "rows": 5,
+        "rows": 9,
         "payTypes": ["Mercantil"],
         "countries": [],
         "publisherType": None,
@@ -28,7 +28,7 @@ def obtener_precio_usdt_ves():
         resp = requests.post(url, headers=headers, data=json.dumps(payload))
         datos = resp.json()
         if datos['data'] and len(datos['data']) > 0:
-            anuncio = datos['data'][0]
+            anuncio = datos['data'][8]
             return {
                 "comerciante": anuncio['advertiser']['nickName'],
                 "precio": anuncio['adv']['price'],
@@ -46,3 +46,4 @@ def usdt():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Render usa la variable PORT
     app.run(host="0.0.0.0", port=port)
+
