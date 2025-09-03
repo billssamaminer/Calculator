@@ -9,8 +9,8 @@ def obtener_precio_usdt_ves():
     url = "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search"
     payload = {
         "proMerchantAds": False,
-        "page": 4,
-        "rows": 9,
+        "page": 1,
+        "rows": 100,
         "payTypes": ["Mercantil"],
         "countries": [],
         "publisherType": None,
@@ -28,7 +28,7 @@ def obtener_precio_usdt_ves():
         resp = requests.post(url, headers=headers, data=json.dumps(payload))
         datos = resp.json()
         if datos['data'] and len(datos['data']) > 0:
-            anuncio = datos['data'][8]
+            anuncio = datos['data'][40]
             return {
                 "comerciante": anuncio['advertiser']['nickName'],
                 "precio": anuncio['adv']['price'],
@@ -46,6 +46,7 @@ def usdt():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Render usa la variable PORT
     app.run(host="0.0.0.0", port=port)
+
 
 
 
