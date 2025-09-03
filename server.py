@@ -10,7 +10,7 @@ def obtener_precio_usdt_ves():
     payload = {
         "proMerchantAds": False,
         "page": 1,
-        "rows": 100,
+        "rows": 50,
         "payTypes": ["Mercantil"],
         "countries": [],
         "publisherType": None,
@@ -46,6 +46,7 @@ def usdt():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Render usa la variable PORT
     app.run(host="0.0.0.0", port=port)
+
 
 
 
