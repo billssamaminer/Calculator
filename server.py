@@ -9,7 +9,7 @@ def obtener_precio_usdt_ves():
     url = "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search"
     payload = {
         "proMerchantAds": False,
-        "page": 2,
+        "page": 4,
         "rows": 9,
         "payTypes": ["Mercantil"],
         "countries": [],
@@ -46,5 +46,6 @@ def usdt():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Render usa la variable PORT
     app.run(host="0.0.0.0", port=port)
+
 
 
